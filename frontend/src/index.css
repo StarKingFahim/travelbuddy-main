@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	user-select: none;
+}
+
+
+/* body::-webkit-scrollbar,
+.scroll-style::-webkit-scrollbar {
+	width: 5px;
+	background: linear-gradient(to right, #78c171, rgb(255, 255, 255));
+}
+
+body::-webkit-scrollbar-thumb,
+.scroll-style::-webkit-scrollbar-thumb {
+	width: 3px;
+	border-radius: 50px;
+	background-color: #78c171;
+	box-shadow: inset 0px 0px 3px white;
+}
+
+.scroll-style-x::-webkit-scrollbar {
+	height: 2px;
+	background-color: white;
+}
+
+.scroll-style-x::-webkit-scrollbar-thumb {
+	background-color: #7eb08b;
+	border-radius: 50px;
+	box-shadow: inset 0px 0px 3px white;
+	height: 1px;
+} */
+
+
+.hiddenbox {
+	top: -80px;
+}
+
+#loader {
+	width: 40px;
+	aspect-ratio: 1;
+	background: var(--c), var(--m), var(--c), var(--m), var(--c), var(--m);
+	--c: linear-gradient(#fff 0 0);
+	--m: radial-gradient(farthest-side, #fff 92%, #00000000);
+	background-size: 8px 15px, 8px 8px;
+	background-repeat: no-repeat;
+	animation: chatLoading 1s infinite alternate;
+}
+
+@keyframes chatLoading {
+	0%,
+	10% {
+		background-position: 0 0, 0 100%, 50% 0, 50% 100%, 100% 0, 100% 100%;
+	}
+
+	33% {
+		background-position: 0 100%, 0 0, 50% 0, 50% 100%, 100% 0, 100% 100%;
+	}
+
+	66% {
+		background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 0, 100% 100%;
+	}
+
+	90%,
+	100% {
+		background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 100%, 100% 0;
+	}
+}
+
+.enter-block {
+	animation: slideIn 0.4s forwards;
+}
+
+.exit-block {
+	animation: slideOut 0.4s forwards;
+}
+
+
+.loading-animation {
+	background: linear-gradient(
+		to right,
+		#000000,
+		#006900,
+		#006900,
+		#000000
+	);
+	background-size: 300% 100%;
+	animation: shimmerEffect 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmerEffect {
+	0% {
+		background-position: 300% 0;
+	}
+
+	100% {
+		background-position: -300% 0;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(-200px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideOut {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateY(-200px);
+		opacity: 0;
+	}
+}
+
+
+#user-chatting {
+	text-align: start;
+	margin: 13px 8px;
+}
+
+#user-chatting span {
+	display: inline-block;
+	margin-right: 5px;
+	background: white;
+	border-radius: 15px;
+	width: 15px;
+	height: 15px;
+	animation: user-chatting 0.9s infinite alternate;
+}
+
+#user-chatting span:nth-of-type(2) {
+	animation-delay: 0.2s;
+}
+
+#user-chatting span:nth-of-type(3) {
+	animation-delay: 0.5s;
+}
+
+@keyframes user-chatting {
+	0% {
+		opacity: 0.9;
+		transform: scale(0.4);
+	}
+
+
+	100% {
+		opacity: 0.06;
+		transform: scale(1);
+	}
+}
